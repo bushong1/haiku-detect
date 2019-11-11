@@ -14,5 +14,3 @@ true
   'that instead of single lines ',
   'haikus are preferred?' ]
 ```
-
-

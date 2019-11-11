@@ -6,6 +6,11 @@ detect = function(msg) {
 };
 
 format = function(msg) {
+  if (msg.length > 250){
+    // Bail out to avoid wrecking the CPU with syllable; I'm happy to bump this number if there's reason
+    // Longest 1 syllable word is 12, (12 + 1)*(5+7+5) = 221; 17 longest words spaced out + 30 characters
+    return [];
+  }
   var syllable_count = syllable(msg);
   if (syllable_count != 17) {
     //console.log("Syllable count != 17; not a haiku")
