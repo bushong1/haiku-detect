@@ -1,4 +1,5 @@
 var syllable = require('syllable');
+var ntw = require('number-to-words');
 //var util = require('util');
 
 detect = function(msg) {
@@ -11,6 +12,14 @@ format = function(msg) {
     // Longest 1 syllable word is 12, (12 + 1)*(5+7+5) = 221; 17 longest words spaced out + 30 characters
     return [];
   }
+  // Replace dollar-sign
+  msg = msg.replace(/\$/g,'dollar-');
+  // Replace numbers with words
+  var numbers = msg.match(/(\d+)/g) || [];
+  for(i = 0; i < numbers.length; i++){
+    msg = msg.replace(numbers[i], ntw.toWords(numbers[i]))
+  }
+
   var syllable_count = syllable(msg);
   if (syllable_count != 17) {
     //console.log("Syllable count != 17; not a haiku")

@@ -1,6 +1,6 @@
 {
   "name": "haiku-detect",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A set of tools for finding hidden haikus in strings",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "number-to-words": "^1.2.4",
     "syllable": "^4.0.0"
   },
-  "keywords": [ "haiku" ]
+  "keywords": [
+    "haiku"
+  ]
 }
